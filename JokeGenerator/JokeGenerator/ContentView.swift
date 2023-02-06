@@ -20,9 +20,11 @@ class ContentViewModel: ObservableObject {
         loading = true
         showPunchline = false
         
-        Task {
-            joke = await Joke.getJoke()
-            loading = false
+        DispatchQueue.main.async {
+            Task {
+                self.joke = await Joke.getJoke()
+                self.loading = false
+            }
         }
     }
 }
@@ -31,29 +33,27 @@ struct ContentView: View {
     @ObservedObject var vm: ContentViewModel = .init()
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                if let j = vm.joke {
-                    Spacer()
-                    JokeView(loading: $vm.loading, showPunchline: $vm.showPunchline, joke: j)
-                        .transition(.scale)
-                    Spacer()
-                }
-                
-                Button {
-                    vm.requestJoke()
-                } label: {
-                    Label("Get Joke", systemImage: "theatermask.and.paintbrush.fill")
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(.orange)
-                
+        VStack {
+            if let j = vm.joke {
+                Spacer()
+                JokeView(loading: $vm.loading, showPunchline: $vm.showPunchline, joke: j)
+                    .transition(.scale)
+                Spacer()
             }
-            .animation(.easeInOut, value: vm.hasJoke)
-            .padding()
-            .overlay {
-                LoadingIndicator(loading: $vm.loading)
+            
+            Button {
+                vm.requestJoke()
+            } label: {
+                Label("Get Joke", systemImage: "theatermask.and.paintbrush.fill")
             }
+            .buttonStyle(.borderedProminent)
+            .tint(.orange)
+            
+        }
+        .animation(.easeInOut, value: vm.hasJoke)
+        .padding()
+        .overlay {
+            LoadingIndicator(loading: $vm.loading)
         }
     }
 }

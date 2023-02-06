@@ -26,6 +26,7 @@
 		BD4FB1DA2991B366002AE3FC /* JokeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeView.swift; sourceTree = "<group>"; };
 		BD4FB1DC2991B564002AE3FC /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		BD4FB1DE2991B8AB002AE3FC /* Joke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joke.swift; sourceTree = "<group>"; };
+		BD4FB1E02991B9C6002AE3FC /* Walkthrough.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Walkthrough.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +61,7 @@
 			children = (
 				BD47364E299176830033EB21 /* Info.plist */,
 				BD473642299171A00033EB21 /* ContentView.swift */,
+				BD4FB1E02991B9C6002AE3FC /* Walkthrough.md */,
 				BD4FB1DE2991B8AB002AE3FC /* Joke.swift */,
 				BD473640299171A00033EB21 /* JokeGeneratorApp.swift */,
 				BD4FB1DA2991B366002AE3FC /* JokeView.swift */,
