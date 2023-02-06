@@ -24,15 +24,25 @@ struct ContentView: View {
         return joke == nil
     }
     
+    var setupText: some View {
+        Text(joke?.setup ?? "")
+            .bold()
+            .padding(20)
+    }
+    
     var body: some View {
         VStack {
             if let j = joke {
                 Spacer()
                 
                 GroupBox {
-                    Text(j.setup)
-                        .bold()
-                        .padding(20)
+                    if loading {
+                        setupText
+                            .redacted(reason: .placeholder)
+                    } else {
+                        setupText
+                    }
+                    
                     
                     RoundedRectangle(cornerRadius: 8, style: .continuous)
                         .fill(.orange)
@@ -40,14 +50,13 @@ struct ContentView: View {
                         .overlay {
                             if showPunchline {
                                 Text(j.punchline)
-                                    .foregroundColor(.white)
-                                    .bold()
                                     .padding(20)
                             } else {
                                 Label("Show Punchline", systemImage: "eye.fill")
-                                    .tint(.white)
                             }
                         }
+                        .foregroundColor(.white)
+                        .bold()
                         .onTapGesture {
                             showPunchline.toggle()
                         }
@@ -84,7 +93,7 @@ struct ContentView: View {
     func requestJoke() {
         loading = true
         showPunchline = false
-        joke = nil
+//        joke = nil
         Task {
             joke = await getJoke()
             loading = false
