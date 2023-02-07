@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD092B0A29928CC700C4FAEE /* JokesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD092B0929928CC700C4FAEE /* JokesListView.swift */; };
 		BD473641299171A00033EB21 /* JokeGeneratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD473640299171A00033EB21 /* JokeGeneratorApp.swift */; };
 		BD473643299171A00033EB21 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD473642299171A00033EB21 /* ContentView.swift */; };
 		BD473645299171A20033EB21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD473644299171A20033EB21 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD092B0929928CC700C4FAEE /* JokesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesListView.swift; sourceTree = "<group>"; };
 		BD47363D299171A00033EB21 /* JokeGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JokeGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD473640299171A00033EB21 /* JokeGeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeGeneratorApp.swift; sourceTree = "<group>"; };
 		BD473642299171A00033EB21 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			children = (
 				BD47364E299176830033EB21 /* Info.plist */,
 				BD473642299171A00033EB21 /* ContentView.swift */,
+				BD092B0929928CC700C4FAEE /* JokesListView.swift */,
 				BD4FB1E02991B9C6002AE3FC /* Walkthrough.md */,
 				BD4FB1DE2991B8AB002AE3FC /* Joke.swift */,
 				BD473640299171A00033EB21 /* JokeGeneratorApp.swift */,
@@ -153,6 +156,7 @@
 				BD4FB1DD2991B564002AE3FC /* LoadingIndicator.swift in Sources */,
 				BD4FB1DF2991B8AB002AE3FC /* Joke.swift in Sources */,
 				BD473643299171A00033EB21 /* ContentView.swift in Sources */,
+				BD092B0A29928CC700C4FAEE /* JokesListView.swift in Sources */,
 				BD4FB1DB2991B366002AE3FC /* JokeView.swift in Sources */,
 				BD473641299171A00033EB21 /* JokeGeneratorApp.swift in Sources */,
 			);

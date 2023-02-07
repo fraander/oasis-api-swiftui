@@ -42,4 +42,22 @@ struct Joke: Codable, Identifiable {
         
         return decoded
     }
+    
+    static func getJokes() async throws -> [Joke] {
+        guard var url = URL(string: "https://official-joke-api.appspot.com") else {
+            throw URLError(.badURL)
+        }
+        url.append(path: "random_ten")
+        let request = URLRequest(url: url)
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+            throw URLError(.badServerResponse)
+        }
+        
+        let decoded = try JSONDecoder().decode([Joke].self, from: data)
+        
+        return decoded
+    }
 }
