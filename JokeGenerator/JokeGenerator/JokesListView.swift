@@ -28,7 +28,7 @@ struct JokesListView: View {
                 .padding()
                 .swipeActions {
                     Button {
-                        storage.storedJokes.append(joke)
+                        storage.storeJoke(joke: joke)
                         saved.toggle()
                     } label: {
                         Label("Save", systemImage: "star.fill")
@@ -56,9 +56,7 @@ struct JokesListView: View {
             }
         }
         .sheet(isPresented: $saved) {
-            List(storage.storedJokes) { joke in
-                JokeViewListWrapper(joke: joke)
-            }
+            JokesPageView()
         }
         .task {
             Task {

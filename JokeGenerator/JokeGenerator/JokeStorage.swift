@@ -10,9 +10,26 @@ import Foundation
 extension String: Error {}
 
 class JokeStorage: ObservableObject {
-    @Published var storedJokes: [Joke] {
-        didSet {
+    @Published private(set) var storedJokes: [Joke]
+    
+    public func storeJoke(joke: Joke) {
+        if !storedJokes.contains(where: { j in
+            j.id == joke.id
+        }) {
+            storedJokes.append(joke)
             try? writeToDocuments()
+        }
+    }
+    
+    public func removeJoke(index: Int) {
+        storedJokes.remove(at: index)
+        do {
+            try writeToDocuments()
+            if let j = try? readFromDocuments() {
+                storedJokes = j
+            }
+        } catch {
+            print("could not remove and save update")
         }
     }
     
