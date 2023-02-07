@@ -29,7 +29,6 @@ struct JokesListView: View {
                 .swipeActions {
                     Button {
                         storage.storeJoke(joke: joke)
-                        saved.toggle()
                     } label: {
                         Label("Save", systemImage: "star.fill")
                     }
@@ -43,10 +42,11 @@ struct JokesListView: View {
                 jokes = newJokes + jokes
             }
         }
+        
     }
     
     var body: some View {
-        VStack {
+        NavigationStack {
             Group {
                 if jokes.isEmpty {
                     LoadingIndicator(loading: .constant(true))
@@ -54,13 +54,24 @@ struct JokesListView: View {
                     listView
                 }
             }
-        }
-        .sheet(isPresented: $saved) {
-            JokesPageView()
-        }
-        .task {
-            Task {
-                jokes = try await Joke.getJokes()
+            
+            .sheet(isPresented: $saved) {
+                JokesPageView()
+            }
+            .task {
+                Task {
+                    jokes = try await Joke.getJokes()
+                }
+            }
+            .toolbar {
+                Button {
+                    saved.toggle()
+                } label: {
+                    Label("Saved", systemImage: "tray.full")
+                        .labelStyle(.titleAndIcon)
+                }
+                .buttonStyle(.bordered)
+                .tint(.orange)
             }
         }
     }
