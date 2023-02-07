@@ -25,25 +25,20 @@ struct Joke: Codable, Identifiable {
     var setup: String
     var punchline: String
     
-    static func getJoke() async -> Joke? {
+    static func getJoke() async throws -> Joke {
         guard var url = URL(string: "https://official-joke-api.appspot.com") else {
-            return nil
+            throw URLError(.badURL)
         }
         url.append(path: "random_joke")
-        
         let request = URLRequest(url: url)
         
-        guard let (data, response) = try? await URLSession.shared.data(for: request) else {
-            print("Did not receive response.")
-            return nil
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+            throw URLError(.badServerResponse)
         }
         
-        guard (response as? HTTPURLResponse)?.statusCode == 200 else { fatalError("Error while fetching data") }
-        
-        guard let decoded = try? JSONDecoder().decode(Joke.self, from: data) else {
-            print("Cannot decode.")
-            return nil
-        }
+        let decoded = try JSONDecoder().decode(Joke.self, from: data)
         
         return decoded
     }

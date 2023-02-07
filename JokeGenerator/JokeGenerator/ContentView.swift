@@ -22,7 +22,7 @@ class ContentViewModel: ObservableObject {
         
         DispatchQueue.main.async {
             Task {
-                self.joke = await Joke.getJoke()
+                self.joke = try await Joke.getJoke()
                 self.loading = false
             }
         }
