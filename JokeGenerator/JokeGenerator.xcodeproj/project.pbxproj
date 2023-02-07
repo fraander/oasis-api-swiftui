@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BD092B0A29928CC700C4FAEE /* JokesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD092B0929928CC700C4FAEE /* JokesListView.swift */; };
+		BD0E515B29929FCE0097333A /* JokePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0E515A29929FCE0097333A /* JokePageView.swift */; };
+		BD0E515D2992A2870097333A /* JokeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0E515C2992A2870097333A /* JokeStorage.swift */; };
 		BD473641299171A00033EB21 /* JokeGeneratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD473640299171A00033EB21 /* JokeGeneratorApp.swift */; };
 		BD473643299171A00033EB21 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD473642299171A00033EB21 /* ContentView.swift */; };
 		BD473645299171A20033EB21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD473644299171A20033EB21 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		BD092B0929928CC700C4FAEE /* JokesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesListView.swift; sourceTree = "<group>"; };
+		BD0E515A29929FCE0097333A /* JokePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokePageView.swift; sourceTree = "<group>"; };
+		BD0E515C2992A2870097333A /* JokeStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeStorage.swift; sourceTree = "<group>"; };
 		BD47363D299171A00033EB21 /* JokeGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JokeGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD473640299171A00033EB21 /* JokeGeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeGeneratorApp.swift; sourceTree = "<group>"; };
 		BD473642299171A00033EB21 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,8 +65,10 @@
 		BD47363F299171A00033EB21 /* JokeGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				BD0E515A29929FCE0097333A /* JokePageView.swift */,
 				BD47364E299176830033EB21 /* Info.plist */,
 				BD473642299171A00033EB21 /* ContentView.swift */,
+				BD0E515C2992A2870097333A /* JokeStorage.swift */,
 				BD092B0929928CC700C4FAEE /* JokesListView.swift */,
 				BD4FB1E02991B9C6002AE3FC /* Walkthrough.md */,
 				BD4FB1DE2991B8AB002AE3FC /* Joke.swift */,
@@ -153,7 +159,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD0E515B29929FCE0097333A /* JokePageView.swift in Sources */,
 				BD4FB1DD2991B564002AE3FC /* LoadingIndicator.swift in Sources */,
+				BD0E515D2992A2870097333A /* JokeStorage.swift in Sources */,
 				BD4FB1DF2991B8AB002AE3FC /* Joke.swift in Sources */,
 				BD473643299171A00033EB21 /* ContentView.swift in Sources */,
 				BD092B0A29928CC700C4FAEE /* JokesListView.swift in Sources */,
