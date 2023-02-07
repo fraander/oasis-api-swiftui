@@ -7,6 +7,18 @@
 
 import Foundation
 
+/*
+ 
+ JSON from endpoint:
+ {
+    id: 1,
+    type: "Random",
+    setup: "What's a cow's favorite sound?",
+    punchline: "Moo-sic"
+ }
+ 
+ */
+
 struct Joke: Codable, Identifiable {
     var id: Int
     var type: String
